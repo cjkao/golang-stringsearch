@@ -66,10 +66,10 @@ func SearchByStructRegex(employees []data.Employee, pat string) []int {
 		match := len(re.FindStringIndex(employee.Account)) > 0 ||
 			len(re.FindStringIndex(employee.Address)) > 0 ||
 			len(re.FindStringIndex(employee.Chinesename)) > 0 ||
-			re.MatchString(employee.DepartmentEng) ||
-			re.MatchString(employee.DeptID) ||
-			re.MatchString(employee.Englishname) ||
-			re.MatchString(employee.Phone)
+			len(re.FindStringIndex(employee.DepartmentEng)) > 0 ||
+			len(re.FindStringIndex(employee.DeptID)) > 0 ||
+			len(re.FindStringIndex(employee.Englishname)) > 0 ||
+			len(re.FindStringIndex(employee.Phone)) > 0
 		if match {
 			result = append(result, i)
 		}
